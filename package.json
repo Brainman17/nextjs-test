@@ -28,5 +28,9 @@
     "@types/styled-components": "5.1.26",
     "babel-plugin-styled-components": "2.1.1",
     "prettier": "2.8.7"
-  }
+  },
+  "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
+  "main": "next.config.js",
+  "author": "",
+  "license": "ISC"
 }
