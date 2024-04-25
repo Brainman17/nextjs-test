@@ -9,9 +9,20 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   res.setHeader(
     "Cache-Control",
     "public, s-maxage=10, stale-while-revalidate=100"
-  );
+  ); // кешируем на 100 сек (надо пересобрать build, чтоб заработало)
 
   const episodes = await API.rickAndMorty.getEpisodes();
+
+  const isAuth = true
+
+  if(!isAuth) {
+    return {
+      redirect: {
+        destination: '/test',
+        permanent: false // хз для чего
+      }
+    }
+  } // redirect на стороне сервера
 
   if (!episodes) {
     return {

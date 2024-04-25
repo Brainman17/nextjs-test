@@ -12,7 +12,7 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-    if(req.method === 'GET') {
+    if (req.method === 'GET') {
         let books = booksDB;
 
         const term = req.query.term as string;

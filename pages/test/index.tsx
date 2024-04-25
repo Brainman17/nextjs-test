@@ -26,6 +26,8 @@ export const getStaticProps = async () => {
   };
 };
 
+// таким образом можно прочитать JSON из файла
+
 type PropsType = {
   title: string;
 };

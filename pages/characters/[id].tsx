@@ -16,12 +16,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: true,
+    fallback: true
+    // если поставить blocking, то сначала сгенерируется новая картинка на сервере (которой нет в paths) и отдастся нам готовая
+    // а если true как сейчас, то тоже самое, но с помощью router.isFallback мы можем показывать loading...
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { id } = params || {};
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  const { id } = ctx.params || {};
+
 
   const character = await API.rickAndMorty.getCharacter(id as string);
 
@@ -50,8 +53,6 @@ const Character = (props: PropsType) => {
   if (router.isFallback) return <h1>Loading...</h1>;
 
   const characterId = router.query.id;
-
-  console.log(router);
 
   const goToCharacters = () => router.push("/characters");
 
