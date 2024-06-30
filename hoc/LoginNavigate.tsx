@@ -5,6 +5,6 @@ export const LoginNavigate: FC<PropsWithChildren> = ({children}) => {
     const {push} = useRouter()
     const isAuth = true
 
-    if(!isAuth) push('/test')
+    if(!isAuth) void push('/test')
     return <>{children}</>
 }
