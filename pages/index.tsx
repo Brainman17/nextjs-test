@@ -15,5 +15,25 @@ const Home: NextPageWithLayout = () => (
   </PageWrapper>
 );
 
+function toWeirdCase (string: any) {
+    const words = string.split(" ");
+
+    const adjWord = words.map((word: string) => {
+        let newStr = ''
+        for (let i = 0; i < word.length; i++) {
+            if (i % 2 === 0) {
+                newStr += word[i].toUpperCase();
+            } else {
+                newStr += word[i].toLowerCase();
+            }
+        }
+
+        return newStr;
+    })
+
+    return adjWord.join(' ')
+} // Пример решения toWeirdCase
+
+
 Home.getLayout = getBaseLayout;
 export default Home;
