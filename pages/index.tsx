@@ -18,6 +18,8 @@ const Home: NextPageWithLayout = () => (
 function toWeirdCase (string: any) {
     const words = string.split(" ");
 
+    console.log('words', words);
+
     const adjWord = words.map((word: string) => {
         let newStr = ''
         for (let i = 0; i < word.length; i++) {
@@ -33,6 +35,22 @@ function toWeirdCase (string: any) {
 
     return adjWord.join(' ')
 } // Пример решения toWeirdCase
+
+const multiplicationTable = function(size: number) {
+    const table = [];
+
+    for (let i = 1; i <= size; i++) {
+        const row = [];
+        for (let j = 1; j <= size; j++) {
+            row.push(i*j)
+        }
+        table.push(row)
+    }
+
+    return table
+}
+
+console.log('multiplicationTable: ', multiplicationTable(3))
 
 
 Home.getLayout = getBaseLayout;
