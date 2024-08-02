@@ -50,7 +50,31 @@ const multiplicationTable = function(size: number) {
     return table
 }
 
-console.log('multiplicationTable: ', multiplicationTable(3))
+const findMissing = function (list: number[]) {
+  const n = list.length;
+
+  const firstEl = list[0]
+    const lastEl = list[n - 1]
+  const expectedDiff = (lastEl - firstEl) / n
+
+    let currEl = firstEl
+
+    for (let i = firstEl; i <= lastEl; i++) {
+        currEl += expectedDiff
+
+        if (!list.includes(currEl)) {
+            return currEl
+        }
+
+
+    }
+
+    return currEl
+}
+
+
+
+
 
 
 Home.getLayout = getBaseLayout;
